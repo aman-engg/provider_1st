@@ -24,10 +24,26 @@ class _ListState extends State<Listpage> {
                   return ListTile(
                     title: Text("${alldata[index]["name"]}"),
                     subtitle: Text("${alldata[index]["phone no"]}"),
+                    trailing: SizedBox(
+                      width: 100,
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Provider.of<Listmapprovider>(
+                                context,
+                                listen: false,
+                              ).deletedata(index);
+                            },
+                            icon: Icon(Icons.delete, color: Colors.red),
+                          ),
+                        ],
+                      ),
+                    ),
                   );
                 },
               )
-              : Center(child: Text("no data"));
+              : Center(child: Text("No data"));
         },
       ),
       floatingActionButton: FloatingActionButton(
