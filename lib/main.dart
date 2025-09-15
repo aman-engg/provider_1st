@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_1st/addcontactspage.dart';
 import 'package:provider_1st/counterprovider.dart';
+import 'package:provider_1st/contactslistpage.dart';
 import 'package:provider_1st/home.dart';
+import 'package:provider_1st/listmapprovider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Counterprovider()),
+        ChangeNotifierProvider(create: (context) => Listmapprovider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,14 +23,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: "Provider",
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ChangeNotifierProvider(
-        create: (_) => Counterprovider(),
-        child: Home(),
-      ),
+      home: Listpage(),
     );
   }
 }

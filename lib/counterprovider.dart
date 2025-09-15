@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Counterprovider extends ChangeNotifier {
   int _count = 0;
-  double hight = 20;
-  double width = 20;
+  double hight = 50;
+  double width = 50;
 
   int getcount() => _count;
 
@@ -13,20 +13,20 @@ class Counterprovider extends ChangeNotifier {
   }
 
   void hightincrease() {
-    hight = hight + 10;
+    hight = hight + 20;
     notifyListeners();
   }
 
   void decreasecontainerhight() {
     if (hight > 10) {
-      hight = hight - 10;
+      hight = hight - 20;
     }
     notifyListeners();
   }
 
   void decreasecontainerwidt() {
     if (width > 10) {
-      width = width - 10;
+      width = width - 20;
     }
     notifyListeners();
   }

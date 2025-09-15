@@ -35,10 +35,13 @@ class _HomeState extends State<Home> {
                       ).gethight(),
                 ),
               ),
-              Text(
-                "Hight = ${Provider.of<Counterprovider>(context).gethight()} Width = ${Provider.of<Counterprovider>(context).getwidth()}",
+              Consumer<Counterprovider>(
+                builder: (ctx, _, _) {
+                  return Text(
+                    "Hight = ${Provider.of<Counterprovider>(ctx).gethight()} Width = ${Provider.of<Counterprovider>(ctx).getwidth()}",
+                  );
+                },
               ),
-
               // Text(
               //   "${Provider.of<Counterprovider>(context, listen: true).getcount()}",
               // ),
